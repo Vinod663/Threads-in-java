@@ -16,6 +16,7 @@ class A{
     boolean flag=false;
 
     public synchronized void put(int num){
+
         while(flag){
             try {
                 wait();//wait for the other thread to finish
@@ -27,10 +28,11 @@ class A{
         System.out.println("PUT :"+num);
         this.num=num;
         flag=true;
-        notify();//notify the waiting thread to wake up and runnable state from waiting state(waiting state eken runnable state ekata enawa)
+        notify();//notify the waiting thread to wake up and its come to runnable state from waiting state(waiting state eken runnable state ekata enawa)
     }
 
     public synchronized void get(){
+
         while(!flag){
             try {
                 wait();//wait for the other thread to finish
